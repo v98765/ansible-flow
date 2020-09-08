@@ -17,7 +17,7 @@
     state: started
     enabled: true
   tags:
-    - flow_run`
+    - flow_run
 
 - name: ensure sfdump service is started and enabled
   become: true
@@ -27,4 +27,4 @@
     state: started
     enabled: true
   tags:
-    - flow_run`
+    - flow_run
