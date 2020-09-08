@@ -1,0 +1,14 @@
+[Unit]
+Description=netflow capture daemon
+After=network.target auditd.service
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/default/nfcapd
+ExecStart=/usr/bin/nfcapd -D -P /run/nfcapd.pid -p 2055 $ARGS
+PIDFile=/run/nfcapd.pid
+KillMode=process
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

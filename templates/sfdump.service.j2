@@ -1,0 +1,14 @@
+[Unit]
+Description=sflow capture daemon
+After=network.target auditd.service
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/default/sfcapd
+ExecStart=/usr/bin/sfcapd -D -P /run/sfcapd.pid $ARGS
+PIDFile=/run/sfcapd.pid
+KillMode=process
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

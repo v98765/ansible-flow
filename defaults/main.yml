@@ -1,0 +1,21 @@
+---
+flows_dir:
+  - /var/lib/flows
+  - /var/lib/flows/router1
+  - /var/lib/flows/router2
+  - /var/lib/flows/switch1
+  - /var/lib/flows/switch2
+
+nfcapd_config_flags_extra:
+ S: 1
+
+sfcapd_config_flags_extra:
+ S: 1
+
+nfcapd_config_agents:
+  - router1,10.0.0.1,/var/lib/flows/router1
+  - router2,10.0.0.2,/var/lib/flows/router2
+
+sfcapd_config_agents:
+  - switch1,10.0.1.1,/var/lib/flows/switch1
+  - switch1,10.0.1.2,/var/lib/flows/switch2

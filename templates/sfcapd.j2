@@ -1,0 +1,3 @@
+{{ ansible_managed | comment }}
+
+ARGS="{% for flag, flag_value in sfcapd_config_flags_extra.items() %}-{{ flag }}{% if flag_value %} {{ flag_value }}{% endif %} {% endfor %}{% for item in sfcapd_config_agents %}-n {{ item }}{% if not loop.last %} {%endif%}{% endfor %}"

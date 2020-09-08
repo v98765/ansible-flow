@@ -1,0 +1,15 @@
+---
+# handlers file for ansible-flow
+- name: restart sfdump
+  become: true
+  systemd:
+    daemon_reload: true
+    name: sfdump
+    state: restarted
+
+- name: restart nfdump
+  become: true
+  systemd:
+    daemon_reload: true
+    name: nfdump
+    state: restarted

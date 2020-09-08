@@ -1,0 +1,40 @@
+---
+- name: create config sfcapd
+  template:
+    src: sfcapd.j2
+    dest: /etc/default/sfcapd
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart sfdump
+
+- name: create systemd service unit sfcapd
+  template:
+    src: sfdump.service.j2
+    dest: /lib/systemd/system/sfdump.service
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart sfdump
+
+- name: create config nfcapd
+  template:
+    src: nfcapd.j2
+    dest: /etc/default/nfcapd
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart nfdump
+
+- name: create systemd service unit nfcapd
+  template:
+    src: nfdump.service.j2
+    dest: /lib/systemd/system/nfdump.service
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart nfdump
